@@ -1,0 +1,27 @@
+FROM node:10-alpine
+#Comando. docker build . en consola en la carpeta del archivo para que construya el archivo
+#Comprobar creacion con: docker images
+#Asignar etiqueta (tag) con: docker build -t uv/frontuv:1.0 .
+#docker run -d -name frontuv_container (este es el contenedor) frontuv:1.0 (esta es la imagen) para crear
+#Para modificar la imagen, hay que borrar los contenedores de esta
+#Levantar la imagen con  
+#docker rm frontuv_container para borrar contenedor
+#docker image rm frontuv para borrar imágenes
+#docker image rm uv/frontuv:1.0
+#RUN es para ejecutar dentro del contenedor, node:node es grupo y usuarios
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app 
+#Carpeta de node, la ejecución es dentro del mismo contenedor que se ha creado
+RUN mkdir /home/node/app/uvfiles && chown -R node:node /home/node/app/uvfiles
+#Correr en consola docker build -t frontuv:1.0 .
+WORKDIR /home/node/app
+COPY hello.html ./
+#Si hubiera archivos de estos, se copian a raiz (home/node/app)
+USER node
+#te cambias al usuario node dentro del contenedor
+RUN npm install
+#Se corre con el docker build -t frontuv:1.0 .
+#Instalar VM con Ubuntu pero que no sea el desktop
+EXPOSE 8080
+CMD ["node", "Node.js"]
+#Hasta ahora solo se hace la imagen y sin mapear ni meter contenido al contenedor
+#docker run -d --name frontuv_container frontuv:1.0
