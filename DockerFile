@@ -25,4 +25,4 @@ EXPOSE 8080
 CMD ["node", "Node.js"]
 #Hasta ahora solo se hace la imagen y sin mapear ni meter contenido al contenedor
 #docker run -d --name frontuv_container frontuv:1.0
-#Falta subir la imagen en ubuntu
+#Falta subir la imagen del front en dockerhub
