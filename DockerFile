@@ -26,3 +26,125 @@ CMD ["node", "Node.js"]
 #Hasta ahora solo se hace la imagen y sin mapear ni meter contenido al contenedor
 #docker run -d --name frontuv_container frontuv:1.0
 #Falta subir la imagen del front en dockerhub
+
+Clase del viernes 21 de abril de 2023:
+
+terminal en docker file/
+
+mkdir database
+cd database
+ls
+
+/database
+
+nano initdb.sql
+
+/initdb.sql
+
+CREATE USER myuser;
+CREATE DATABASE mydb;
+GRANT ALL PRIVILEGES ON DATABASE mydb TO myuser;
+
+cat initdb.sql
+
+nano Dockerfile
+/Dockerfile
+
+FROM postgres:12
+COPY inittdb.sql /docker-entrypoint-initdb.d/
+
+ls
+
+Dockerfile initdb.sql
+
+nano build.sh
+
+/build.sh
+
+docker build  -t usuario/postgresuv:1.0 .
+
+-t =asigna la etiqueta
+usuario = cuenta de docker hub.
+postgresuv = nombre de la imagen
+1.0: Versión del script.
+
+chmod 755 build.sh
+permisos de ejecución
+
+./build.sh = compilación rápida con privilegios.
+
+docker images
+
+La imagen debería estar creada.
+
+docker push usuario/postgresuv:1.0
+
+Ahora en DockerHub:
+
+Debería verse la imagen ahí.
+
+ls
+
+/docker-file/database
+
+build.sh   Dockerfile   initdb.sql
+
+docker ps -a lista de procesos
+
+antes de borrar, detener el contenedor con docker stop
+
+docker stop mipostgres12_container
+docker rm mipostgres12_container
+
+docker images
+
+docker run  --name postgres_uvcontainer -e POSTGRES_PASSWORD=potsgres -d usuario/postgresuv:1.0
+
+comprobar que se creó con docker ps.
+
+docker logs postgres_uvcontainer (login al contenedor)
+
+docker exec -it postgres_uvcontainer  /bin/bash
+su postgres (usuario del so)
+psql
+
+/l
+
+muestra las bases de datos en un tabla.
+Lunes 24 de abril
+
+cd Practica08
+
+nano DockerFile
+
+FROM eclipse-temurin:11
+RUN mkdir /opt/app
+WORKDIR /opt/app
+ARG  JAR_FILE=target/Programa08-0.0.1-SNAPSHOT.jar
+COPY ${JAR_FILE} app.jar
+EXPOSE 8080
+ENTRYPOINT [“java”, “-jar”, “app.jar”]
+
+docker build -t usuario/backuv:1.0 .
+
+nano build.sh
+
+chmod +x build.sh
+
+./build.sh
+
+docker images
+
+docker push usuario/backuv:1.0
+
+(docker login por si no lo has has hecho)
+
+docker run --name backuv_container -d -e#-e SPRING_DATASOURCE_URL=jdbc:postgresql://172.17.0.4:5432/mydb oswaaaldo6/backuv:1.0
+
+docker rm backuv_container
+
+se levantan dos contenedores, el front y back.
+probar en localhost con 172.17.0.5:5432
+
+docker logs postgresuv_container
+docker run --name mipostgres12 -e POSTGRES_PASSWORD=postgres -d postgres:12
