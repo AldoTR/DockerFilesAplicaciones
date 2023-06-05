@@ -48,7 +48,6 @@ guachi10/front_test             1.0
 docker push guachi10/postgrestest:1.0
 
 
-
 Clase del viernes 21 de abril de 2023:
 
 terminal en docker file/
