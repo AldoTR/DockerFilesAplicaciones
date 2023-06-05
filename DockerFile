@@ -107,7 +107,7 @@ docker exec -it postgres_uvcontainer  /bin/bash
 su postgres (usuario del so)
 psql
 
-/l
+\l
 
 muestra las bases de datos en un tabla.
 Lunes 24 de abril
