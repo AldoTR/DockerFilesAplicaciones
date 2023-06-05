@@ -20,7 +20,6 @@ USER node
 #te cambias al usuario node dentro del contenedor
 RUN npm install
 #Se corre con el docker build -t frontuv:1.0 .
-#Instalar VM con Ubuntu pero que no sea el desktop
 EXPOSE 8080
 CMD ["node", "Node.js"]
 #Hasta ahora solo se hace la imagen y sin mapear ni meter contenido al contenedor
