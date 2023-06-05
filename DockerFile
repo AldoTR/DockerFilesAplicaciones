@@ -1,6 +1,6 @@
 #descargar la imagen de node a local antes: 
 
-docker pull node:10-alpine.
+docker pull node:10-alpine
 
 FROM node:10-alpine
 #Comando. docker build . en consola en la carpeta del archivo para que construya el archivo
