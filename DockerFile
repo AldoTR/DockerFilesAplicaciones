@@ -2,7 +2,7 @@ FROM node:10-alpine
 #Comando. docker build . en consola en la carpeta del archivo para que construya el archivo
 #Comprobar creacion con: docker images
 #Asignar etiqueta (tag) con: docker build -t uv/frontuv:1.0 .
-#docker run -d -name frontuv_container (este es el contenedor) frontuv:1.0 (esta es la imagen) para crear
+#docker run -d --name frontuv_container (este es el contenedor) frontuv:1.0 (esta es la imagen) para crear
 #Para modificar la imagen, hay que borrar los contenedores de esta
 #Levantar la imagen con  
 #docker rm frontuv_container para borrar contenedor
