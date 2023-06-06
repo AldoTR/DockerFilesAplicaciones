@@ -1,3 +1,14 @@
+El crud es el Programa09, se crea en NetBeans con Java with Maven > Springboot initializer project.
+
+Base properties: 
+Group: org.uv.Programa09, Artifact: Programa09, Version: 0.0.1-SNAPSHOT, Packaging: Jar, Name: Programa09
+
+Dependencies:
+Springboot version: 3.1.0.
+Las configuraciones a marcar son: Springboot dev tools, Spring Data JPA, PostgreSQL Driver, Spring Web, Spring Data JDBC, Package name: Programa09, Language: Java, Java Version: 11.
+
+Parte de docker:
+
 #descargar la imagen de node a local antes: 
 
 docker pull node:10-alpine
