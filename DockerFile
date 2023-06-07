@@ -18,6 +18,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 
 # Hibernate ddl auto (create, create-drop, validate, update)
 spring.jpa.hibernate.ddl-auto=update
+
 Parte de docker:
 
 #descargar la imagen de node a local antes: 
