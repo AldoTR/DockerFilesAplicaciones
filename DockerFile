@@ -7,6 +7,17 @@ Dependencies:
 Springboot version: 3.1.0.
 Las configuraciones a marcar son: Springboot dev tools, Spring Data JPA, PostgreSQL Driver, Spring Web, Spring Data JDBC, Package name: Programa09, Language: Java, Java Version: 11.
 
+ApplicationProperties:
+
+spring.datasource.url = jdbc:postgresql://localhost:5432/ejemplo
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+# Hibernate ddl auto (create, create-drop, validate, update)
+spring.jpa.hibernate.ddl-auto=update
 Parte de docker:
 
 #descargar la imagen de node a local antes: 
