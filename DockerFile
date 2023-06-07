@@ -118,6 +118,8 @@ postgresuv = nombre de la imagen
 chmod 755 build.sh
 permisos de ejecución
 
+En Windows (Con powershell) Icacls build.sh
+
 ./build.sh = compilación rápida con privilegios.
 
 docker build  -t usuario/postgresuv:1.0 .
