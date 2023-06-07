@@ -190,6 +190,13 @@ ENTRYPOINT [“java”, “-jar”, “app.jar”]
 Si no genera el .jar, darle run al proyecto en netbeans y después al site-jar, ese el archivo .jar.
 Cuando lo genere, mover el archivo completo del programa a la carpeta dónde esté el docker file.
 
+Comandos del navigator en netbeans para generar los .jar, tanto el tests como el site en el target.
+
+jar test-jar
+site jar
+
+Construir igual el javadoc por si acaso.
+
 Otra forma de especificar las líneas de ARG JAR y COPY:
 
 ARG JAR_FILE=target/Programa08-0.0.1-SNAPSHOT.jar
