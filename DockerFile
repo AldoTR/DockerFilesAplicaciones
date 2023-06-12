@@ -108,7 +108,7 @@ Dockerfile initdb.sql
 
 nano build.sh
 
-/build.sh
+./build.sh
 
 -t =asigna la etiqueta
 usuario = cuenta de docker hub.
